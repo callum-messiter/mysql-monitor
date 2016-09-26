@@ -19,10 +19,11 @@
 
     // Connect to the database
     $db = new mysqli($hostname, $user, $password, $dbName);
+
     // If there is an error connecting to the database:
     if($db->connect_errno > 0){
-      // Echo MySQL-down error; this should be displayed in the log file
-      echo "MySQL DOWN ON PREVIOUS ATTEMPT AT " . date('Y-m-d H:i') . "\n";
+        // Echo MySQL-down error; this should be displayed in the log file for MySQL-status history purposes
+        echo "MySQL DOWN ON PREVIOUS ATTEMPT AT " . date('Y-m-d H:i') . "\n";
         // Check the downtime status
         $downtimeStatus = file_get_contents(__DIR__ . "/downtimeStatus.txt");
         // If the downtime status is not 1 (the message hasn't yet been sent):
@@ -50,7 +51,7 @@
     $myfile = fopen($filename,"w");
     $downtimeStatus = "0";
     fwrite($myfile, $downtimeStatus);
-    // Echo MySQL-running message; this should be displayed in the log file
+    // Echo MySQL-running message; this should be displayed in the log file for MySQL-status history purposes
     echo "MySQL RUNNING ON PREVIOUS ATTEMPT " . date('Y-m-d H:i') . "\n";
     }
 
