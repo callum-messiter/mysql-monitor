@@ -3,7 +3,7 @@ MySQL server monitoring script for real-time SMS status updates (Ubuntu). The sc
 
   <h3>How it works</h3>
   <ul>
-    <li>The <strong>checkConnection.php</strong> script is executed by cron every minute<img src="http://i.imgur.com/1hLvlZw.jpg" width=204px" height="360px" align="right"></img></li>
+    <li>The <strong>checkConnection.php</strong> script is executed by cron every minute<img src="http://i.imgur.com/bCFPOSQ.png" width=204px" height="360px" align="right"></img></li>
     <li>The script initiates a connection to the database</li>
     <li>If the connection fails, suggesting that MySQL is inactive, the script will check the status value in <strong>downtimeStatus.txt</strong></li>
     <li>If the status value is not equal to 1 - suggesting that a message has not yet been sent for this particular crash - the script will execute a new Twilio text message</li>
